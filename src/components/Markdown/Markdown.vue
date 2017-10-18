@@ -6,6 +6,18 @@
 </template>
 
 <script>
+;(function() {
+  var renderer = new marked.Renderer()
+  renderer.code = function(code, language) {
+    return '<pre'+'><code class="hljs">' + hljs.highlightAuto(code).value + '</code></pre>';
+    // 参考サイト: http://phiary.me/marked-js-highlight-js, https://qiita.com/59naga/items/7d46155715416561aa60
+   };
+
+  marked.setOptions({
+    renderer: renderer,
+  });
+})();
+
 export default {
   name: 'Markdown',
   data () {
