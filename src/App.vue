@@ -5,7 +5,7 @@
       <h1>V-log</h1>
       <p>This is a blog service built in Vue.js</p>
       <p>Created by Nishimori.Daisuke</p>
-      <el-date-picker v-model="datetime" type="date" placeholder="日時を選択してください。"></el-date-picker>
+      <!-- <el-date-picker v-model="datetime" type="date" placeholder="日時を選択してください。"></el-date-picker> -->
     </div>
     <Markdown></Markdown>
   </div>
@@ -43,6 +43,9 @@ body {
 }
 
 #content {
-  margin-top: 30px;
+  color: white;
+  padding: 30px 0px;
+  background-image: url("http://free-photos-ls02.gatag.net/images/lgf01a201401241800.jpg");
+  opacity: 10;
 }
 </style>

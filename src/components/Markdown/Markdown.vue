@@ -1,7 +1,7 @@
 <template>
   <div id="editor">
-  <textarea :value="input" @input="update"></textarea>
-  <div v-html="compiledMarkdown"></div>
+    <textarea :value="input" @input="update"></textarea>
+    <div id="markdown-display" v-html="compiledMarkdown"></div>
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
   #editor {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 30px 50px;
-    height: 300px;
+    height: 900px;
     text-align: left;
   }
 
@@ -54,11 +54,13 @@ export default {
     vertical-align: top;
     box-sizing: border-box;
     padding: 0 20px;
+    overflow: scroll;
   }
 
-  textarea {
+  #editor textarea {
     width: 49%;
     height: 100%;
+    overflow: scroll;
     border: none;
     border-right: 1px solid #ccc;
     resize: none;
