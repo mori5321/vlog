@@ -7,7 +7,7 @@
 import axios from "axios"
 
 export default {
-  name: 'SubmitButton',
+  name: 'MenuButton',
   props: ['input'],
   methods: {
     addFeed(e) {
@@ -29,9 +29,3 @@ export default {
 </script>
 
 <style src="./button.css"></style>
-<style scoped>
-#submit {
-  bottom: 80px;
-  right: 30px;
-}
-</style>

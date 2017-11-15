@@ -3,6 +3,7 @@
     <textarea :value="input" @input="update"></textarea>
     <div id="markdown-display" v-html="compiledMarkdown"></div>
     <SubmitButton :input="input"></SubmitButton>
+    <MenuButton></MenuButton>
   </div>
 </template>
 
@@ -22,6 +23,7 @@
 
 import axios from "axios"
 import SubmitButton from "@/components/parts/buttons/SubmitButton"
+import MenuButton from "@/components/parts/buttons/MenuButton"
 
 export default {
   name: 'Markdown',
@@ -41,7 +43,8 @@ export default {
     }, 300)
   },
   components: {
-    SubmitButton
+    SubmitButton,
+    MenuButton
   }
 }
 </script>
@@ -73,30 +76,6 @@ export default {
     border-right: 1px solid #ccc;
     resize: none;
     outline: none;
-  }
-
-  #submit {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
-    height: 40px;
-    cursor: pointer;
-    color: #fff;
-    background: #706D7F;
-    border: 1px solid transparent;
-    transition: all .3s;
-  }
-
-  #submit:hover {
-    background: #fff;
-    color: #706D7F;
-    border: 1px solid #D1D9E5;
   }
 
   pre {
