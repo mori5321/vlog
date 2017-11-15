@@ -1,16 +1,23 @@
 <template>
   <div>
+    <div class="main-title">
+      <h1>Diary</h1>
+      <p>This is just a diary of Daisuke</p>
+    </div>
     <div v-for="feed in feeds">
-      <div class="container">
-        <p class="title">{{ feed.title }}</p>
-        <p class="date">2017-11-01</p>
-      </div>
+      <router-link :to="'/feed/'+feed.id">
+        <div class="container">
+          <p class="title">{{ feed.title }}</p>
+          <p class="date">{{ feed.created_at }}</p>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
   name: 'List',
   data () {
@@ -27,11 +34,18 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style scoped>
+
+.main-title {
+  margin: 0 0 70px;
+}
 
 .container {
   position: relative;
@@ -42,12 +56,17 @@ export default {
   box-sizing: border-box;
   -webkit-transition: all .3s;
   transition: all .3s;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.26);
   cursor: pointer;
+  top: 0;
+  left: 0;
 }
 
 .container:hover {
   background-color: #ECF4FF;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.26);
+  top: -3px;
+  left: -3px;
 }
 
 .title {

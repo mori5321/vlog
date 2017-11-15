@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <MainHeader></MainHeader>
-    <div id="title">
-      <h1>V-log</h1>
-      <p>This is a blog service built in Vue.js</p>
-      <p>Created by Nishimori.Daisuke</p>
-    </div>
     <div id="content">
       <router-view></router-view>
     </div>
@@ -45,9 +40,8 @@ body {
   text-align: center;
 }
 
-#title {
-  color: #706D7F;
-  padding: 30px 0px;
+#content {
+  padding: 100px 0px 60px;
 }
 
 a {

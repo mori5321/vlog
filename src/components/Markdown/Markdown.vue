@@ -2,6 +2,7 @@
   <div id="editor">
     <textarea :value="input" @input="update"></textarea>
     <div id="markdown-display" v-html="compiledMarkdown"></div>
+    <SubmitButton :input="input"></SubmitButton>
   </div>
 </template>
 
@@ -15,14 +16,18 @@
 
   marked.setOptions({
     renderer: renderer,
+    table: true
   });
 })();
+
+import axios from "axios"
+import SubmitButton from "@/components/parts/buttons/SubmitButton"
 
 export default {
   name: 'Markdown',
   data () {
     return {
-      input: "# HelloWorld"
+      input: "# "
     }
   },
   computed: {
@@ -34,6 +39,9 @@ export default {
     update: _.debounce(function(e) {
       this.input = e.target.value
     }, 300)
+  },
+  components: {
+    SubmitButton
   }
 }
 </script>
@@ -47,7 +55,7 @@ export default {
     text-align: left;
   }
 
-  #editor div {
+  #editor #markdown-display {
     display: inline-block;
     width: 49%;
     height: 100%;
@@ -65,5 +73,43 @@ export default {
     border-right: 1px solid #ccc;
     resize: none;
     outline: none;
+  }
+
+  #submit {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    height: 40px;
+    cursor: pointer;
+    color: #fff;
+    background: #706D7F;
+    border: 1px solid transparent;
+    transition: all .3s;
+  }
+
+  #submit:hover {
+    background: #fff;
+    color: #706D7F;
+    border: 1px solid #D1D9E5;
+  }
+
+  pre {
+    background-color: #F7F7F6;
+  }
+
+  pre .filename {
+    display: inline-block;
+    padding: 0.25em;
+    background: rgba(0,0,0,0.07);
+  }
+
+  pre .filename+ * {
+    display: block;
   }
 </style>

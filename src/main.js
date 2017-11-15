@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
