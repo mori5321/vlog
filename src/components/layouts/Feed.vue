@@ -1,7 +1,9 @@
 <template>
-  <div id="feed">
-    <div id="markdown-display" v-html="compiledMarkdown"></div>
-  </div>
+  <transition name="fade">
+    <div id="feed">
+      <div id="markdown-display" v-html="compiledMarkdown"></div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -44,7 +46,26 @@ export default {
 
 <style scoped>
 #feed {
+  width: 70%;
   padding: 20px 80px;
   text-align: left;
 }
+
+/*.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}*/
+
+.fade-enter-active {
+  transition: all 0.5s
+}
+
+.fade-enter {
+  opacity: 0;
+  position: relative;
+  top: 30px;
+}
+
 </style>

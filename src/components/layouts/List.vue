@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <div class="main-title">
-      <h1>Diary</h1>
-      <p>This is just a diary of Daisuke</p>
+  <transition name="fade">
+    <div>
+      <div class="main-title">
+        <h1>Diary</h1>
+        <p>This is just a diary of Daisuke</p>
+      </div>
+      <div v-for="feed in feeds">
+        <router-link :to="'/feed/'+feed.id">
+          <div class="container">
+            <p class="title">{{ feed.title }}</p>
+            <p class="date">{{ feed.created_at }}</p>
+          </div>
+        </router-link>
+      </div>
     </div>
-    <div v-for="feed in feeds">
-      <router-link :to="'/feed/'+feed.id">
-        <div class="container">
-          <p class="title">{{ feed.title }}</p>
-          <p class="date">{{ feed.created_at }}</p>
-        </div>
-      </router-link>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -86,6 +88,16 @@ export default {
   bottom: 5px;
   margin: 0;
   color: #A7A6BB;
+}
+
+.fade-enter-active {
+  transition: all 0.5s
+}
+
+.fade-enter {
+  opacity: 0;
+  position: relative;
+  top: 30px;
 }
 
 
