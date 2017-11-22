@@ -64,8 +64,11 @@ export default {
 
 .fade-enter {
   opacity: 0;
-  position: relative;
-  top: 30px;
+}
+
+.fade-leave {
+  /* チラツキをおさえることができる。*/
+  opacity: 0;
 }
 
 </style>

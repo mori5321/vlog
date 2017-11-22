@@ -13,15 +13,20 @@ export default {
     addFeed(e) {
       let _this = this;
 
-      axios.post("http://localhost:3000/feeds",
-        {
-          feed: {
-            text: this.input
-          }
-        }
-      ).then(function(res) {
-        _this.$router.push({ path: "/"})
+      // ここの挙動マジ謎
+      let params = new URLSearchParams();
+      params.append('text', 'text')
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/feeds',
+        data: params
+      }).then(function(res) {
+        _this.$router.push({ path: "/" })
+      }).catch(function(err) {
+        console.log(err);
       })
+
       e.preventDefault();
     }
   }

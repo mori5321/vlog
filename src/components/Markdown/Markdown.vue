@@ -1,10 +1,12 @@
 <template>
-  <div id="editor">
-    <textarea :value="input" @input="update"></textarea>
-    <div id="markdown-display" v-html="compiledMarkdown"></div>
-    <SubmitButton :input="input"></SubmitButton>
-    <MenuButton></MenuButton>
-  </div>
+  <transition name="fade">
+    <div id="editor">
+      <textarea :value="input" @input="update"></textarea>
+      <div id="markdown-display" v-html="compiledMarkdown"></div>
+      <SubmitButton :input="input"></SubmitButton>
+      <MenuButton></MenuButton>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -90,5 +92,19 @@ export default {
 
   pre .filename+ * {
     display: block;
+  }
+
+  .fade-enter-active {
+    transition: all 0.5s
+  }
+
+  .fade-enter {
+    opacity: 0;
+    position: relative;
+    top: 30px;
+  }
+
+  .fade-leave {
+    opacity: 0;
   }
 </style>
