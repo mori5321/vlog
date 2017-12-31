@@ -3,8 +3,8 @@
     <div id="editor">
       <textarea :value="input" @input="update"></textarea>
       <div id="markdown-display" v-html="compiledMarkdown"></div>
+      <!-- <MenuButton></MenuButton> -->
       <SubmitButton :input="input"></SubmitButton>
-      <MenuButton></MenuButton>
     </div>
   </transition>
 </template>

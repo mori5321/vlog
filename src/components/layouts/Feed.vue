@@ -30,6 +30,7 @@ export default {
   created() {
     axios.get('http://localhost:3000/feeds/' + this.$route.params.id)
     .then(response => {
+      console.log(response)
       this.feed = response.data.text
     })
     .catch(e => {
@@ -47,6 +48,7 @@ export default {
 <style scoped>
 #feed {
   width: 70%;
+  margin: 0 auto;
   padding: 20px 80px;
   text-align: left;
 }

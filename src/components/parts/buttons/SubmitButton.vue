@@ -15,7 +15,7 @@ export default {
 
       // ここの挙動マジ謎
       let params = new URLSearchParams();
-      params.append('text', 'text')
+      params.append('text', this.input)
 
       axios({
         method: 'post',
@@ -35,8 +35,5 @@ export default {
 
 <style src="./button.css"></style>
 <style scoped>
-#submit {
-  bottom: 80px;
-  right: 30px;
-}
+
 </style>

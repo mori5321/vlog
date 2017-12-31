@@ -29,3 +29,9 @@ export default {
 </script>
 
 <style src="./button.css"></style>
+<style>
+  #submit {
+    bottom: 80px;
+    right: 30px;
+  }
+</style>
