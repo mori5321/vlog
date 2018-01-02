@@ -14,10 +14,12 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "element-ui": "^1.4.7",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "vue": "^2.5.2",
+    "vue-head": "^2.0.11",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

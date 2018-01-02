@@ -1,8 +1,12 @@
 <template>
-  <div id="editor">
-    <textarea :value="input" @input="update"></textarea>
-    <div id="markdown-display" v-html="compiledMarkdown"></div>
-  </div>
+  <transition name="fade">
+    <div id="editor">
+      <textarea :value="input" @input="update"></textarea>
+      <div id="markdown-display" v-html="compiledMarkdown"></div>
+      <!-- <MenuButton></MenuButton> -->
+      <SubmitButton :input="input"></SubmitButton>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -15,14 +19,19 @@
 
   marked.setOptions({
     renderer: renderer,
+    table: true
   });
 })();
+
+import axios from "axios"
+import SubmitButton from "@/components/parts/buttons/SubmitButton"
+import MenuButton from "@/components/parts/buttons/MenuButton"
 
 export default {
   name: 'Markdown',
   data () {
     return {
-      input: "# HelloWorld"
+      input: "# "
     }
   },
   computed: {
@@ -34,6 +43,10 @@ export default {
     update: _.debounce(function(e) {
       this.input = e.target.value
     }, 300)
+  },
+  components: {
+    SubmitButton,
+    MenuButton
   }
 }
 </script>
@@ -47,7 +60,7 @@ export default {
     text-align: left;
   }
 
-  #editor div {
+  #editor #markdown-display {
     display: inline-block;
     width: 49%;
     height: 100%;
@@ -65,5 +78,33 @@ export default {
     border-right: 1px solid #ccc;
     resize: none;
     outline: none;
+  }
+
+  pre {
+    background-color: #F7F7F6;
+  }
+
+  pre .filename {
+    display: inline-block;
+    padding: 0.25em;
+    background: rgba(0,0,0,0.07);
+  }
+
+  pre .filename+ * {
+    display: block;
+  }
+
+  .fade-enter-active {
+    transition: all 0.5s
+  }
+
+  .fade-enter {
+    opacity: 0;
+    position: relative;
+    top: 30px;
+  }
+
+  .fade-leave {
+    opacity: 0;
   }
 </style>
