@@ -3,7 +3,9 @@
     <ul class="button-group">
       <li class="logo"><router-link to="/">Diary</router-link></li>
       <li><router-link to="/" class="link">Feeds</router-link></li>
-      <li><router-link to="/markdown" class="link">New</router-link></li>
+      <li v-if="$store.state.isUserLoggedIn">
+        <router-link to="/markdown" class="link">New</router-link>
+      </li>
     </ul>
   </div>
 </template>
