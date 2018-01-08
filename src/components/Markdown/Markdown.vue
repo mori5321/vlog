@@ -18,6 +18,7 @@
    };
 
   marked.setOptions({
+    breaks: true,
     renderer: renderer,
     table: true
   });
