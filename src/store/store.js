@@ -10,6 +10,11 @@ export default new Vuex.Store({
     user: null,
     isUserLoggedIn: false
   },
+  getters: {
+    token: state => {
+      return state.token
+    }
+  },
   mutations: {
     setToken(state, token) {
       state.token = token
