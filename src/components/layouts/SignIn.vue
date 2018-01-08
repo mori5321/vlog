@@ -6,13 +6,18 @@
         <div class="sign_in_form">
           <v-form>
             <v-text-field
-              label="Name"
-              v-model="name"
+              label="Email"
+              v-model="email"
               required
             ></v-text-field>
             <v-text-field
               label="Password"
               v-model="password"
+              required
+            ></v-text-field>
+            <v-text-field
+              label="Password-Confirmation"
+              v-model="passwordConfirmation"
               required
             ></v-text-field>
             <v-btn class="send-button" @click="signIn">Sign In</v-btn>
@@ -34,24 +39,21 @@ export default {
   name: 'SignIn',
   data () {
     return {
-      name: "",
-      password: ""
+      email: "",
+      password: "",
+      passwordConfirmation: ""
     }
   },
   methods: {
     async signIn () {
-      console.log("hello")
       try {
         const response = await AuthenticationService.signIn({
-          name: this.name,
-          pwd: this.password
+          email: this.email,
+          password: this.password,
+          passwordConfirmation: this.passwordConfirmation
         })
-        console.log(response)
-        console.log(response.data.token)
-        console.log(response.data.user)
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
-        console.log("setToken")
       } catch(error) {
         console.log(error)
         this.error = error
