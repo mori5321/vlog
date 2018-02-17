@@ -20,6 +20,8 @@
 })();
 
 import axios from 'axios'
+import Api from '@/services/Api'
+
 export default {
   name: 'Markdown',
   data () {
@@ -28,9 +30,8 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:3000/feeds/' + this.$route.params.id)
+    Api().get('/feeds/' + this.$route.params.id)
     .then(response => {
-      console.log(response)
       this.feed = response.data.text
     })
     .catch(e => {

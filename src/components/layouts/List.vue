@@ -17,6 +17,7 @@
 <script>
 import axios from 'axios'
 import FeedPanel from './FeedPanel'
+import Api from '@/services/Api'
 
 export default {
   name: 'List',
@@ -27,7 +28,8 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:3000/feeds')
+    // axios.get('http://localhost:3000/feeds')
+    Api().get('/feeds')
     .then(response => {
       this.feeds = response.data
     })
