@@ -38,7 +38,7 @@ export default {
 }
 
 .container:hover {
-  background-color: #ECF4FF;
+  background-color: #DAFEFF;
   box-shadow: 0 3px 5px rgba(0,0,0,0.26);
   top: -3px;
   left: -3px;
