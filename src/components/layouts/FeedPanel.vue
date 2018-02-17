@@ -2,7 +2,7 @@
   <router-link :to="'/feed/'+feed.id">
     <div class="container">
       <p class="title">{{ feed.title }}</p>
-      <p class="date">{{ feed.date }}</p>
+      <p class="date">{{ feed.created_at }}</p>
     </div>
   </router-link>
 </template>
