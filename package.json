@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "blog service for myself built by vue.js",
   "author": "西森大介 <nishimoridaisuke@di-v.co.jp>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
