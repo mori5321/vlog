@@ -4,7 +4,8 @@
   "description": "blog service for myself built by vue.js",
   "author": "西森大介 <nishimoridaisuke@di-v.co.jp>",
   "scripts": {
-    "postinstall": "npm install express"
+    "postinstall": "npm install express",
+    "npm start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
