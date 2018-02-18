@@ -11,11 +11,13 @@
               required
             ></v-text-field>
             <v-text-field
+              type="password"
               label="Password"
               v-model="password"
               required
             ></v-text-field>
             <v-text-field
+              type="password"
               label="Password-Confirmation"
               v-model="passwordConfirmation"
               required

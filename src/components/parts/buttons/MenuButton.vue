@@ -1,5 +1,5 @@
 <template>
-  <div id="submit" v-on:click="addFeed">Submit</div>
+  <div id="submit" v-on:click="addFeed"></div>
 </template>
 
 <script>
