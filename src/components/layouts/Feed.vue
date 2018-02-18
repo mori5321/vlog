@@ -2,6 +2,7 @@
   <transition name="fade">
     <div id="feed">
       <div id="markdown-display" v-html="compiledMarkdown"></div>
+      <router-link :to="'/feed/' + this.$route.params.id + '/edit'" v-if="$store.state.isUserLoggedIn">Edit</router-link>
     </div>
   </transition>
 </template>
