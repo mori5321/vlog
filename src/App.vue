@@ -34,9 +34,11 @@ body {
 }
 
 #app {
-  font-family: PingFang SC Hiragino Sans GB, Microsoft YaHei, Arial,sans-serif;;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+  /*font-family: PingFang SC Hiragino Sans GB, Microsoft YaHei, Arial,sans-serif;;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;*/
   text-align: center;
 }
 
